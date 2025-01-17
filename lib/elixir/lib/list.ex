@@ -155,8 +155,8 @@ defmodule List do
   @spec delete([], any) :: []
   @spec delete([...], any) :: list
   def delete(list, element)
-  def delete([element | list], element), do: list
-  def delete([other | list], element), do: [other | delete(list, element)]
+  def delete([element | rest_list], element), do: rest_list
+  def delete([other | rest_list], element), do: [other | delete(rest_list, element)]
   def delete([], _element), do: []
 
   @doc """
